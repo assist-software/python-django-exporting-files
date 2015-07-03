@@ -1,0 +1,22 @@
+{% load i18n staticfiles %}
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'today_weather' %}">{% trans "Exporting files" %}</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{% url 'today_weather' %}">{% trans "Today weather" %}</a>
+                </li>
+                <li>
+                    <a href="{% url 'weather_history' %}">{% trans "Weather History" %}</a>
+                </li>
+                <li>
+                    <a href="{% url 'towns' %}">{% trans "Towns" %}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+
+{% block title %}
+	{% trans "Today weather" %}
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+	<h2 align="center">{% now "d/m/Y" %}</h2><br>
+	{% for tw in today_weather %}
+		<div class="col-md-4">
+		<div class="thumbnail">
+			<div class="caption">
+				<h3>{{ tw.town }} </h3>
+				{% trans "Max temperature" %}: {{ tw.max_temperature }} ℃<br>
+				{% trans "Min temperature" %}: {{ tw.min_temperature }} ℃<br>
+				{% trans "Wind speed" %}: {{ tw.wind_speed }} km/h<br>
+				{% trans "Precipitation" %}: {{ tw.precipitation }} mm<br>
+				{% trans "Precipitation probability" %}: {{ tw.precipitation_probability }}%<br>
+				<a href="{% url 'details' tw.id %}" class="btn btn-link">{% trans "View details" %}</a>
+			</div>
+		</div>
+		</div>
+        {% empty %}
+    <tr>
+        <td>
+            <h3 align='center'>{% trans "No data for today" %}</h3>
+        </td>
+    </tr>
+	{% endfor %}
+</div>
+{% endblock content %}

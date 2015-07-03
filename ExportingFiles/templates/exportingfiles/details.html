@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+
+{% block title %}
+	{% trans "Details" %}
+{% endblock title %}
+
+{% block content %}
+<h2>{{ weather.town }} - {{ weather.date }}</h2><br>
+<table class="table-responsive narrower">
+	<table class="table no-first-line">
+		<tbody>
+			<tr>
+				<th>{% trans "Max temperature" %}</th>
+				<td>{{ weather.max_temperature }} ℃</td>
+			</tr>
+			<tr>
+				<th>{% trans "Min temperature" %}</th>
+				<td>{{ weather.min_temperature }} ℃</td>
+			</tr>
+			<tr>
+				<th>{% trans "Wind speed" %}</th>
+				<td>{{ weather.wind_speed }} km/h</td>
+			</tr>
+			<tr>
+				<th>{% trans "Precipitation" %}</th>
+				<td>{{ weather.precipitation }} mm</td>
+			</tr>
+			<tr>
+				<th>{% trans "Precipitation probability" %}</th>
+				<td>{{ weather.precipitation_probability }} %</td>
+			</tr>
+			<tr>
+				<th>{% trans "Description" %}</th>
+				<td>{{ weather.description }}</td>
+			</tr>
+			<tr>
+				<th>{% trans "Observations" %}</th>
+				<td>{{ weather.observations }}</td>
+			</tr>
+		</tbody>
+	</table>
+</table>
+{% endblock content %}

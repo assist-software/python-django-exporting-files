@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+
+{% block title %}
+	{% trans "Towns" %}
+{% endblock title %}
+
+{% block content %}
+<h3 align="center">{% trans "Towns" %}</h3>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>{% trans "Town" %}</th>
+				<th>{% trans "County" %}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for t in towns %}
+			<tr>
+				<td>{{ t }}</td>
+				<td>{{ t.county }}</td>
+			</tr>
+			{% empty %}
+			<tr>
+				<td colspan="2" class="text-center">{% trans "No towns added." %}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock content %}
