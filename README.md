@@ -2,7 +2,7 @@
 
 This is a Python/Django app which displays how simple it is to export an Excel file.
 
-For creating Excel files we're using [XlsxWriter](http://xlsxwriter.readthedocs.org/) module. The code contains information on how to add data to the Excel file, how to resize columns and rows, and also how to add charts.
+For creating Excel files we're using [XlsxWriter](http://xlsxwriter.readthedocs.org/) module. The code contains information on how to add data to the Excel file, how to resize columns and rows, and also how to add charts. For more details read this article: [How to export Excel files in a Python/Django application](http://assist-software.net/blog/how-export-excel-files-pythondjango-application).
 
 This application is developed by the awesome [ASSIST Software](http://assist-software.net/) team.
 
