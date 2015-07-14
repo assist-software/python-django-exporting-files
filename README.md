@@ -12,6 +12,7 @@ How to install the application
 - Clone the code from git.
 - Create an environment using [virtualenv](https://virtualenv.pypa.io/en/latest/) and activate it.
 - Install the project dependencies with [pip](https://pip.pypa.io/en/latest/installing.html). Run this command: `pip install -r requirements.txt` while being in the folder with the `requirements.txt` file.
+- Access mysql server using: `mysql -u root -p` and create the database: `CREATE DATABASE db_name;`
 - Create a `local_settings.py` file in the same folder as `settings.py`. Change the name and user if needed and add the password.
 ```
 DATABASES = {
