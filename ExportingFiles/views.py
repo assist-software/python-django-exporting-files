@@ -1,11 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from datetime import date
+from io import BytesIO
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import WeatherForm
 from .models import Town, Weather
 from .excel_utils import WriteToExcel
+from .pdf_utils import PdfPrint
 
 
 def all_towns(request):
@@ -41,6 +43,17 @@ def weather_history(request):
             response['Content-Disposition'] = 'attachment; filename=Report.xlsx'
             xlsx_data = WriteToExcel(weather_period, town)
             response.write(xlsx_data)
+            return response
+        if 'pdf' in request.POST:
+            response = HttpResponse(content_type='application/pdf')
+            today = date.today()
+            filename = 'pdf_demo' + today.strftime('%Y-%m-%d')
+            response['Content-Disposition'] =\
+                'attachement; filename={0}.pdf'.format(filename)
+            buffer = BytesIO()
+            report = PdfPrint(buffer, 'A4')
+            pdf = report.report(weather_period, 'Weather statistics data')
+            response.write(pdf)
             return response
     else:
         form = WeatherForm()
