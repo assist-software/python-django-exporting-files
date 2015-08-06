@@ -29,5 +29,5 @@ DATABASES = {
 }
 DEBUG = True
 ```
-- Run `python manage.py migrate` to create the database.
+- Run `python manage.py migrate` to create the tables.
 - Run `python manage.py runserver` to actually run the application and explore its features.
